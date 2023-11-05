@@ -1,0 +1,24 @@
+{
+  "name": "executor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon ./src/index.ts",
+    "dx": "npx nodemon ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/amqplib": "^0.10.1",
+    "@types/lodash": "^4.14.196",
+    "@types/node": "^20.4.5",
+    "amqplib": "^0.10.3",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "ts-node": "^10.9.1",
+    "@code-ide/rabbitmq-utils": "*",
+    "@code-ide/db": "*"
+  }
+}

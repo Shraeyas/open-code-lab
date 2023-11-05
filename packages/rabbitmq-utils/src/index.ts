@@ -1,2 +1,2 @@
-export * from './sendMessage';
-export * from './connect';
+export * from "./sendMessage";
+export * from "./connect";

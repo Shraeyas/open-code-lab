@@ -12,6 +12,9 @@ model User {
   name             String
   email            String       @unique
   Executions       Execution[]
+  createdAt        DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
+  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 model Execution {
@@ -24,6 +27,9 @@ model Execution {
   user             User?        @relation(fields: [user_id], references: [id])
   visibility       Visibility   @default(public)
   ExecutionResult  ExecutionResult[]
+  createdAt        DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
+  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 model ExecutionResult {
@@ -33,12 +39,18 @@ model ExecutionResult {
   status           Status       @default(Queued)
   output           String?
   verdict          String?
+  createdAt        DateTime    @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime    @default(now()) @updatedAt @db.Timestamptz(3)
+  expiresAt        DateTime?   @default(now()) @db.Timestamptz(3)
 }
 
 model Language {
   id               Int          @id @default(autoincrement())
   name             String       @unique
   executions       Execution[]
+  createdAt        DateTime     @default(now()) @db.Timestamptz(3)
+  updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
+  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 enum Visibility {

@@ -1,4 +1,4 @@
-import Editor from "@monaco-editor/react";
+import Editor, { OnChange } from "@monaco-editor/react";
 import * as monaco from "monaco-editor";
 interface CodeEditorProps {
   editorRef?: React.RefObject<monaco.editor.IStandaloneCodeEditor> | null;
@@ -7,16 +7,10 @@ interface CodeEditorProps {
   readOnly?: boolean;
 }
 export const CodeEditor: React.FC<CodeEditorProps> = ({
-  editorRef = null,
   code,
   setCode = null,
   readOnly = false,
 }) => {
-  function handleEditorDidMount(editor: any) {
-    // if(editorRef) {
-    //     editorRef.current = editor;
-    // }
-  }
   const options: monaco.editor.IEditorConstructionOptions = {
     autoIndent: "full",
     contextmenu: true,
@@ -38,11 +32,6 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
     cursorStyle: "line",
     automaticLayout: true,
   };
-  const onChange = (e: any) => {
-    if (setCode) {
-      setCode(e.target.value);
-    }
-  };
   return (
     <>
       <div>
@@ -50,10 +39,10 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           height="70vh"
           defaultLanguage="cpp"
           defaultValue="// some comment"
-          onMount={handleEditorDidMount}
+          // onMount={handleEditorDidMount}
           theme={"vs-dark"}
           value={code}
-          onChange={onChange}
+          onChange={setCode as OnChange}
           options={options}
         />
       </div>

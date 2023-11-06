@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios, { AxiosResponse, AxiosError } from "axios";
-import { CodeEditor, Badge } from "ui";
+import { Badge } from "ui";
 interface ExecutionData {
   id: string;
   input: string;

@@ -6,7 +6,6 @@ import { Dropdown } from "ui";
 import Input from "./Input";
 function Code({ setExecutionId }: any) {
   const supportedLanguages = ["cpp", "python"];
-  const editorRef = useRef(null);
   const [code, setCode] = useState("");
   const [stdin, setStdin] = useState("");
   const onSubmit = (e: React.FormEvent) => {
@@ -24,7 +23,7 @@ function Code({ setExecutionId }: any) {
   return (
     <form>
       <div className="pb-1 px-1">
-        <CodeEditor editorRef={editorRef} code={code} setCode={setCode} />
+        <CodeEditor code={code} setCode={setCode} />
       </div>
       <div className="grid grid-cols-1">
         <div className="flow-root p-1">

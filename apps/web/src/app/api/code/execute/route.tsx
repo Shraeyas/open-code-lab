@@ -3,6 +3,7 @@ import { getServerSession } from "next-auth";
 import { PrismaClient } from "@code-ide/db";
 import { executionSchema } from "@code-ide/types";
 import { sendMessage } from "@code-ide/rabbitmq-utils";
+import { encode } from "encode-decode-utils";
 const prismaClient = new PrismaClient();
 export async function POST(req: NextRequest) {
   const session = await getServerSession();
@@ -52,9 +53,9 @@ export async function POST(req: NextRequest) {
       message: "Queued for execution!",
       data: {
         url: `http://${req.headers.get("host")}/api/code/status/${
-          execution.id
+          encode(execution.id)
         }`,
-        executionId: execution.id,
+        executionId: encode(execution.id),
       },
     });
   } else {

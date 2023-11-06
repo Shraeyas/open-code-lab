@@ -38,8 +38,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         <Editor
           height="70vh"
           defaultLanguage="cpp"
-          defaultValue="// some comment"
-          // onMount={handleEditorDidMount}
+          defaultValue="// Add your code here"
           theme={"vs-dark"}
           value={code}
           onChange={setCode as OnChange}

@@ -6,7 +6,8 @@ import { Dropdown } from "ui";
 import Input from "./Input";
 function Code({ setExecutionId }: any) {
   const supportedLanguages = ["cpp", "python"];
-  const [code, setCode] = useState("");
+  const defaultValue='#include<iostream>\n' + 'using namespace std;\n' + 'int main() {\n' + '    cout << "Hello, World!";\n' + '}';
+  const [code, setCode] = useState(defaultValue);
   const [stdin, setStdin] = useState("");
   const onSubmit = (e: React.FormEvent) => {
     e.preventDefault();

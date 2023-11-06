@@ -1,3 +1,8 @@
+apps/executor/code-sandbox/input.txt
+apps/executor/code-sandbox/output.txt
+apps/executor/code-sandbox/result.txt
+apps/executor/code-sandbox/src.cpp
+.turbo/
 # Logs
 logs
 *.log

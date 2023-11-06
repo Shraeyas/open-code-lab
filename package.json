@@ -1,10 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo db:push db:generate && turbo run build && turbo run dx",
+    "dx": "docker compose up -d",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "start": "turbo run start"
   },
   "devDependencies": {
     "eslint": "^8.48.0",

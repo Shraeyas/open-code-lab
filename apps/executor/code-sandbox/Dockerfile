@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 
 RUN mkdir code-exec
-COPY . /code-exec
+COPY ./run.sh /code-exec
 
 WORKDIR /code-exec
 

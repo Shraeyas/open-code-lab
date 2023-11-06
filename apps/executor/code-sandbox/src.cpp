@@ -1,9 +1,5 @@
-// some comment
-
-#include <iostream>
-
+#include<iostream>
 using namespace std;
-
 int main() {
-    cout << "hello, wordl";
+    cout << "Hello, World!";
 }

@@ -4,7 +4,7 @@ import { useState, useRef } from "react";
 import { CodeEditor, Button } from "ui";
 import { Dropdown } from "ui";
 import Input from "./Input";
-function Code({ setExecutionId }: any) {
+function Code({ setExecutionId, setHasLoaded }: any) {
   const supportedLanguages = ["cpp", "python"];
   const defaultValue='#include<iostream>\n' + 'using namespace std;\n' + 'int main() {\n' + '    cout << "Hello, World!";\n' + '}';
   const [code, setCode] = useState(defaultValue);
@@ -19,6 +19,7 @@ function Code({ setExecutionId }: any) {
       })
       .then((data) => {
         setExecutionId(data.data.data.executionId);
+        setHasLoaded(false);
       });
   };
   return (

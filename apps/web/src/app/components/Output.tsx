@@ -17,7 +17,7 @@ const Output = ({ executionId }: { executionId: String }) => {
         axios.get(`/api/code/status/${executionId}`).then((data) => {
           setExecutionResult(data.data);
         });
-      }, 10000);
+      }, 2100);
       return () => clearInterval(intervalId);
     }
   }, [executionId]);

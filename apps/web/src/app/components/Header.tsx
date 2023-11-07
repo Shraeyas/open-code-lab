@@ -34,9 +34,9 @@ export const Header = () => {
             )}
             {data && (
               <Link
-              href="/signout"
+                href="/"
                 className="bg-neutral-800 text-white font-bold rounded-md py-2 px-5 text-sm"
-                // onClick={() => signOut()}
+                onClick={() => signOut()}
               >
                 Logout
               </Link>

@@ -3,7 +3,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios, { AxiosResponse, AxiosError } from "axios";
 import { Badge } from "ui";
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
+import Link from "next/link";
 interface ExecutionData {
   id: string;
   input: string;
@@ -19,7 +20,7 @@ interface ExecutionHistory {
 }
 export default function MyCodes() {
   const session = useSession();
-  if(session.status === 'unauthenticated') {
+  if (session.status === "unauthenticated") {
     redirect("/");
   }
   const [executionHistory, setExecutionHistory] =
@@ -56,9 +57,11 @@ export default function MyCodes() {
                     <Badge executionResult={data.verdict} />
                   </td>
                   <td className="p-3 px-10">
-                    <a href={`/my-codes/view/${data.id}`}>View</a>
+                    <Link href={`/my-codes/view/${data.id}`}><i>View</i></Link>
                   </td>
-                  <td className="p-3 px-10">{(new Date(data.createdAt)).toString().split("GMT")[0]}</td>
+                  <td className="p-3 px-10">
+                    {new Date(data.createdAt).toString().split("GMT")[0]}
+                  </td>
                 </tr>
               ) : (
                 <tr key={idx} className="p-3 bg-neutral-800">
@@ -71,11 +74,15 @@ export default function MyCodes() {
                     <Badge executionResult={data.verdict} />
                   </td>
                   <td className="p-3 px-10">
-                    <a href={`/my-codes/view/${data.id}`}>View</a>
+                    <Link href={`/my-codes/view/${data.id}`}>
+                      <i>View</i>
+                    </Link>
                   </td>
-                  <td className="p-3 px-10">{(new Date(data.createdAt)).toString().split("GMT")[0]}</td>
+                  <td className="p-3 px-10">
+                    {new Date(data.createdAt).toString().split("GMT")[0]}
+                  </td>
                 </tr>
-              ),
+              )
             )}
         </tbody>
       </table>

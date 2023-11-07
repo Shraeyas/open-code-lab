@@ -1,5 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
 import axios from "axios";
 import { CodeEditor } from "ui";
 interface Params {
@@ -18,6 +20,10 @@ interface CodeDataInterface {
   };
 }
 export default function Page({ params }: { params: Params }) {
+  const session = useSession();
+  if(session.status === 'unauthenticated') {
+    redirect("/");
+  }
   const { executionId } = params;
   const [codeData, setCodeData] = useState<CodeDataInterface | null>(null);
   useEffect(() => {

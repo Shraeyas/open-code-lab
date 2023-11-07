@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useSession } from "next-auth/react";
 import axios, { AxiosResponse, AxiosError } from "axios";
 import { Badge } from "ui";
+import { redirect } from 'next/navigation'
 interface ExecutionData {
   id: string;
   input: string;
@@ -17,6 +18,9 @@ interface ExecutionHistory {
 }
 export default function MyCodes() {
   const session = useSession();
+  if(session.status === 'unauthenticated') {
+    redirect("/");
+  }
   const [executionHistory, setExecutionHistory] =
     useState<ExecutionHistory | null>(null);
   useEffect(() => {

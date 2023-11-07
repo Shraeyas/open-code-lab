@@ -10,6 +10,7 @@ interface ExecutionData {
   lang: string;
   status: string;
   verdict: string;
+  createdAt: string;
 }
 interface ExecutionHistory {
   data: {
@@ -38,6 +39,7 @@ export default function MyCodes() {
             <th className="p-3 px-10 text-left">Status</th>
             <th className="p-3 px-10 text-left">Verdict</th>
             <th className="p-3 px-10 text-left">Link</th>
+            <th className="p-3 px-10 text-left">Date Created</th>
           </tr>
         </thead>
         <tbody>
@@ -56,6 +58,7 @@ export default function MyCodes() {
                   <td className="p-3 px-10">
                     <a href={`/my-codes/view/${data.id}`}>View</a>
                   </td>
+                  <td className="p-3 px-10">{(new Date(data.createdAt)).toString().split("GMT")[0]}</td>
                 </tr>
               ) : (
                 <tr key={idx} className="p-3 bg-neutral-800">
@@ -70,6 +73,7 @@ export default function MyCodes() {
                   <td className="p-3 px-10">
                     <a href={`/my-codes/view/${data.id}`}>View</a>
                   </td>
+                  <td className="p-3 px-10">{(new Date(data.createdAt)).toString().split("GMT")[0]}</td>
                 </tr>
               ),
             )}

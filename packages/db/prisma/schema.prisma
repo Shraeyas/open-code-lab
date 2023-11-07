@@ -14,7 +14,6 @@ model User {
   Executions       Execution[]
   createdAt        DateTime     @default(now()) @db.Timestamptz(3)
   updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
-  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 model Execution {
@@ -29,7 +28,6 @@ model Execution {
   ExecutionResult  ExecutionResult[]
   createdAt        DateTime     @default(now()) @db.Timestamptz(3)
   updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
-  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 model ExecutionResult {
@@ -41,7 +39,6 @@ model ExecutionResult {
   verdict          String?
   createdAt        DateTime    @default(now()) @db.Timestamptz(3)
   updatedAt        DateTime    @default(now()) @updatedAt @db.Timestamptz(3)
-  expiresAt        DateTime?   @default(now()) @db.Timestamptz(3)
 }
 
 model Language {
@@ -50,7 +47,6 @@ model Language {
   executions       Execution[]
   createdAt        DateTime     @default(now()) @db.Timestamptz(3)
   updatedAt        DateTime     @default(now()) @updatedAt @db.Timestamptz(3)
-  expiresAt        DateTime?    @default(now()) @db.Timestamptz(3)
 }
 
 enum Visibility {

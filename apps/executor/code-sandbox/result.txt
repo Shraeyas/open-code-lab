@@ -1,3 +1,0 @@
-Time: 0.00
-Memory: 3572
-Message: Executed

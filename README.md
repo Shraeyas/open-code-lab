@@ -3,6 +3,7 @@
 View this in action: [opencodelab.in](http://opencodelab.in/)
 
 ### Local development setup with docker:
+&nbsp; &nbsp; - Copy .env.example to .env\
 &nbsp; &nbsp; - Install docker desktop on your machine\
 &nbsp; &nbsp; - Run the following:\
 &nbsp; &nbsp; - ```docker compose up -d```

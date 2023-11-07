@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { Prisma, PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { encode } from "encode-decode-utils";
@@ -27,6 +27,9 @@ export async function POST(req: NextRequest, { params }: any) {
     include: {
       ExecutionResult: true,
     },
+    orderBy: {
+      createdAt: Prisma.SortOrder.desc,
+    },
   });
   const supportedLanguages = await prismaClient.language.findMany();
   const languageMap = new Map();
@@ -40,6 +43,7 @@ export async function POST(req: NextRequest, { params }: any) {
       lang: languageMap.get(data.lang_id),
       status: data.ExecutionResult[0].status,
       verdict: data.ExecutionResult[0].verdict,
+      createdAt: data.ExecutionResult[0].createdAt,
     };
   });
   if (execution) {

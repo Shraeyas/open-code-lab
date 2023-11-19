@@ -19,6 +19,7 @@ export default function RootLayout({
         <body className={inter.className}>
           <Header />
           {children}
+          <div className="fixed right-5 bottom-5 font-bold bg-gradient-to-r from-blue-950 to-neutral-950 p-3 rounded-s-full rounded-e-full text-sm"><a target={"_blank"} href={"https://github.com/Shraeyas/open-code-lab"}>View on GitHub</a></div>
         </body>
       </html>
     </Provider>

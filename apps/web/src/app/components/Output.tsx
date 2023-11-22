@@ -96,7 +96,7 @@ const Output = ({
           <strong>Output</strong>
           <br />
           <br />
-          {executionResult ? executionResult.data.output : ""}
+          {executionResult ? executionResult.data.output.split(/\n/).map((line, idx) => <pre key = {idx}>{line}</pre>) : ""}
         </div>
       ) : (
         <></>
